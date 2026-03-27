@@ -5,7 +5,7 @@ export function AboutSection() {
   const { ref, isInView } = useInView();
 
   return (
-    <section id="about" className="py-16 sm:py-24 md:py-32 bg-white">
+    <section id="about" className="scroll-mt-8 py-16 sm:py-24 md:py-32 bg-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
         <motion.div
           ref={ref}

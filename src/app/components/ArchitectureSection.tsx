@@ -98,7 +98,7 @@ export function ArchitectureSection() {
   };
 
   return (
-    <section id="architecture" className="py-16 sm:py-24 md:py-32 bg-white relative overflow-hidden">
+    <section id="architecture" className="scroll-mt-8 py-16 sm:py-24 md:py-32 bg-white relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <motion.div
           ref={ref}

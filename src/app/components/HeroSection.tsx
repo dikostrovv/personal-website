@@ -1,23 +1,9 @@
-import { motion } from 'motion/react';
 import { IconArrowRight, IconMail } from '@tabler/icons-react';
+import { motion } from 'motion/react';
 
 export function HeroSection() {
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      const header = document.querySelector('header');
-      const headerOffset = header instanceof HTMLElement ? header.offsetHeight : 0;
-      const targetPosition = element.getBoundingClientRect().top + window.scrollY - headerOffset;
-
-      window.scrollTo({
-        top: Math.max(targetPosition, 0),
-        behavior: 'smooth',
-      });
-    }
-  };
-
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-b from-gray-50 to-white">
+    <section id="hero" className="min-h-screen scroll-mt-8 flex items-center justify-center relative overflow-hidden bg-gradient-to-b from-gray-50 to-white">
       {/* Subtle background shapes */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-blue-100 rounded-full blur-3xl opacity-20" />
@@ -64,20 +50,20 @@ export function HeroSection() {
             transition={{ delay: 0.5 }}
             className="flex flex-col sm:flex-row gap-4 justify-center px-4"
           >
-            <button
-              onClick={() => scrollToSection('experience')}
+            <a
+              href="#experience"
               className="px-6 sm:px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all hover:shadow-lg hover:-translate-y-0.5 flex items-center justify-center gap-2"
             >
               View Experience
               <IconArrowRight className="w-4 h-4" />
-            </button>
-            <button
-              onClick={() => scrollToSection('contact')}
+            </a>
+            <a
+              href="#contact"
               className="px-6 sm:px-8 py-3 bg-white text-gray-700 border border-gray-300 rounded-lg hover:border-gray-400 transition-all hover:shadow-md hover:-translate-y-0.5 flex items-center justify-center gap-2"
             >
               <IconMail className="w-4 h-4" />
               Contact Me
-            </button>
+            </a>
           </motion.div>
         </motion.div>
       </div>

@@ -1,5 +1,5 @@
-import {motion} from "motion/react";
-import {useInView} from "./hooks/useInView";
+import { motion } from "motion/react";
+import { useInView } from "./hooks/useInView";
 
 const skillsData = {
   Frontend: {
@@ -32,7 +32,7 @@ export function SkillsSection() {
   const {ref, isInView} = useInView();
 
   return (
-    <section id="skills" className="py-16 sm:py-24 md:py-32 bg-gray-50">
+    <section id="skills" className="scroll-mt-8 py-16 sm:py-24 md:py-32 bg-gray-50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <motion.div
           ref={ref}

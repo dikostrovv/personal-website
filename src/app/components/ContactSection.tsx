@@ -1,5 +1,5 @@
-import { motion } from 'motion/react';
 import { IconBrandGithub, IconBrandLinkedin, IconMail, IconSend } from '@tabler/icons-react';
+import { motion } from 'motion/react';
 import { useInView } from './hooks/useInView';
 
 const contactLinks = [
@@ -27,7 +27,7 @@ export function ContactSection() {
   const { ref, isInView } = useInView();
 
   return (
-    <section id="contact" className="py-16 sm:py-24 md:py-32 bg-gradient-to-br from-gray-50 to-blue-50">
+    <section id="contact" className="scroll-mt-8 py-16 sm:py-24 md:py-32 bg-gradient-to-br from-gray-50 to-blue-50">
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
         <motion.div
           ref={ref}

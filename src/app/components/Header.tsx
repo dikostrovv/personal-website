@@ -34,32 +34,9 @@ export function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      const header = document.querySelector('header');
-      const headerOffset = header instanceof HTMLElement ? header.offsetHeight : 0;
-      const targetPosition = element.getBoundingClientRect().top + window.scrollY - headerOffset;
-      const scroll = () => {
-        window.scrollTo({
-          top: Math.max(targetPosition, 0),
-          behavior: 'smooth',
-        });
-      };
-
-      if (mobileMenuOpen) {
-        setMobileMenuOpen(false);
-        requestAnimationFrame(scroll);
-        return;
-      }
-
-      scroll();
-    }
-  };
-
   return (
     <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200">
-      <nav className="max-w-6xl mx-auto px-4 sm:px-6 py-4">
+      <nav className="relative max-w-6xl mx-auto px-4 sm:px-6 py-4">
         <div className="flex items-center justify-between">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -78,8 +55,8 @@ export function Header() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.05 }}
               >
-                <button
-                  onClick={() => scrollToSection(item.id)}
+                <a
+                  href={`#${item.id}`}
                   className={`text-sm transition-colors relative ${
                     activeSection === item.id
                       ? 'text-blue-600'
@@ -94,7 +71,7 @@ export function Header() {
                       transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                     />
                   )}
-                </button>
+                </a>
               </motion.li>
             ))}
           </ul>
@@ -116,21 +93,22 @@ export function Header() {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.2 }}
-              className="md:hidden overflow-hidden"
+              className="absolute left-4 right-4 top-full mt-2 md:hidden overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-lg"
             >
-              <ul className="py-4 space-y-2">
+              <ul className="p-3 space-y-2">
                 {navItems.map((item) => (
                   <li key={item.id}>
-                    <button
-                      onClick={() => scrollToSection(item.id)}
-                      className={`w-full text-left px-4 py-2 rounded-lg transition-colors ${
+                    <a
+                      href={`#${item.id}`}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className={`block w-full text-left px-4 py-2 rounded-lg transition-colors ${
                         activeSection === item.id
                           ? 'bg-blue-50 text-blue-600'
                           : 'text-gray-600 hover:bg-gray-50'
                       }`}
                     >
                       {item.label}
-                    </button>
+                    </a>
                   </li>
                 ))}
               </ul>
