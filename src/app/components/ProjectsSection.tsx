@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { IconBolt, IconExternalLink } from '@tabler/icons-react';
+import { IconBolt } from '@tabler/icons-react';
 import { useInView } from './hooks/useInView';
 
 const projects = [
@@ -53,12 +53,9 @@ export function ProjectsSection() {
                 transition={{ delay: index * 0.1 }}
                 className="bg-white rounded-xl p-5 sm:p-6 border border-gray-200 hover:shadow-xl transition-all hover:-translate-y-1 group"
               >
-                <div className="flex items-start justify-between mb-4">
-                  <h4 className="text-lg sm:text-xl group-hover:text-blue-600 transition-colors pr-2">
-                    {project.title}
-                  </h4>
-                  <IconExternalLink className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 group-hover:text-blue-600 transition-colors flex-shrink-0" />
-                </div>
+                <h4 className="text-lg sm:text-xl group-hover:text-blue-600 transition-colors mb-4">
+                  {project.title}
+                </h4>
 
                 <p className="text-sm sm:text-base text-gray-600 mb-4 leading-relaxed">
                   {project.description}

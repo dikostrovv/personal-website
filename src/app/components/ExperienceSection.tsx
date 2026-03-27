@@ -6,7 +6,7 @@ import { useInView } from './hooks/useInView';
 const experiences = [
   {
     id: 1,
-    company: 'StaffScheduleCare',
+    company: 'Healthcare Workforce Management Platform (StaffScheduleCare)',
     role: 'Full-stack Developer',
     period: 'July 2025 - Present',
     summary: 'Building payroll and workforce management features for a healthcare platform at First Line Software.',

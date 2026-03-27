@@ -112,7 +112,7 @@ export function ArchitectureSection() {
             A quick overview of the technical areas that define my recent work across healthcare and finance products.
           </p>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+          <div className="grid lg:grid-cols-3 gap-4 sm:gap-6 items-start">
             {architectureBlocks.map((block, index) => (
               <motion.div
                 key={block.id}
@@ -149,7 +149,7 @@ export function ArchitectureSection() {
                       transition={{ duration: 0.3 }}
                       className="overflow-hidden"
                     >
-                      <div className="px-4 sm:px-6 pb-4 sm:pb-6 pt-2 border-t border-gray-100">
+                      <div className="px-4 sm:px-6 pb-4 sm:pb-6 pt-4 border-t border-gray-100">
                         <div className="space-y-4">
                           {block.details.map((detail) => (
                             <div key={detail.title}>
