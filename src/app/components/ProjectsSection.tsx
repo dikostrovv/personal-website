@@ -9,7 +9,7 @@ const projects = [
     description: 'Healthcare workforce management platform where I build payroll and workforce management features across frontend and backend.',
     techStack: ['React', 'TypeScript', '.NET', 'REST APIs', 'Testing'],
     keyResult: 'Delivered end-to-end product work spanning UI, API integration, C# handlers, validation logic, and database migrations.',
-    metrics: ['Healthcare', 'Full-stack', '+40% test coverage'],
+    metrics: ['Healthcare', 'Full-stack', 'Current role'],
   },
   {
     id: 2,
@@ -17,15 +17,15 @@ const projects = [
     description: 'Clinic and patient-facing healthcare products built during my work with IQVIA.',
     techStack: ['React', 'TypeScript', 'SCSS', 'Storybook', 'Jest', 'Webpack'],
     keyResult: 'Helped move a monolithic system to micro-frontends and created a component library that reduced feature delivery time by about 20%.',
-    metrics: ['Micro-frontends', 'Healthcare'],
+    metrics: ['Micro-frontends', '+40% test coverage', 'Healthcare'],
   },
   {
     id: 3,
     title: 'Investment Strategy Platform',
     description: 'Responsive conference product demo built for a major investment event as an overlapping project.',
-    techStack: ['React', 'TypeScript', 'SCSS', 'PWA'],
+    techStack: ['React', 'TypeScript', 'SCSS', 'PWA', 'Service Workers'],
     keyResult: 'Delivered the demo in under 2 months and improved app speed by 30% with a mobile-first PWA approach.',
-    metrics: ['Under 2 months', 'Offline-ready'],
+    metrics: ['Under 2 months', '+30% speed', 'Offline-ready'],
   },
 ];
 
