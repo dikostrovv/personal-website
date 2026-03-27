@@ -119,55 +119,56 @@ export function ArchitectureSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: index * 0.1 }}
-                className="h-full bg-white rounded-xl border border-gray-200 hover:shadow-xl transition-all hover:-translate-y-1"
+                className="bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-all"
               >
                 <button
                   onClick={() => toggleCard(block.id)}
-                  className="w-full h-full text-left p-4 sm:p-5"
+                  className="w-full text-left p-4 sm:p-6 hover:bg-gray-50 transition-colors"
                 >
-                  <div className="flex flex-col min-h-full">
-                    <div>
+                  <div className="flex items-start justify-between gap-4">
+                    <div className="flex-1 min-w-0">
                       <h4 className="text-lg sm:text-xl mb-1">{block.title}</h4>
                       <p className="text-sm sm:text-base text-blue-600">{block.subtitle}</p>
                     </div>
-
-                    <AnimatePresence initial={false}>
-                      {openCardId === block.id && (
-                        <motion.div
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: 'auto', opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.25 }}
-                          className="overflow-hidden"
-                        >
-                          <div className="space-y-4">
-                            {block.details.map((detail) => (
-                              <div key={detail.title} className="pt-4 border-t border-gray-100 first:border-t-0 first:pt-0">
-                                <h5 className="text-sm sm:text-base font-medium text-gray-900 mb-3">{detail.title}</h5>
-                                <ul className="space-y-2">
-                                  {detail.items.map((item) => (
-                                    <li key={item} className="flex gap-3 text-sm sm:text-base text-gray-600">
-                                      <span className="text-blue-600 flex-shrink-0">•</span>
-                                      <span>{item}</span>
-                                    </li>
-                                  ))}
-                                </ul>
-                              </div>
-                            ))}
-                          </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-
                     <motion.div
                       animate={{ rotate: openCardId === block.id ? 180 : 0 }}
                       transition={{ duration: 0.3 }}
-                      className="flex justify-center"
+                      className="flex-shrink-0 mt-2"
                     >
                       <IconChevronDown className="w-5 h-5 text-gray-400" />
                     </motion.div>
                   </div>
                 </button>
+
+                <AnimatePresence initial={false}>
+                  {openCardId === block.id && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="overflow-hidden"
+                    >
+                      <div className="px-4 sm:px-6 pb-4 sm:pb-6 pt-2 border-t border-gray-100">
+                        <div className="space-y-4">
+                          {block.details.map((detail) => (
+                            <div key={detail.title}>
+                              <h5 className="text-sm sm:text-base font-medium text-gray-900 mb-3">{detail.title}</h5>
+                              <ul className="space-y-2">
+                                {detail.items.map((item) => (
+                                  <li key={item} className="flex gap-3 text-sm sm:text-base text-gray-600">
+                                    <span className="text-blue-600 flex-shrink-0">•</span>
+                                    <span>{item}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </motion.div>
             ))}
           </div>
