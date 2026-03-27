@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { ArrowRight, Mail } from 'lucide-react';
+import { IconArrowRight, IconMail } from '@tabler/icons-react';
 
 export function HeroSection() {
   const scrollToSection = (id: string) => {
@@ -62,13 +62,13 @@ export function HeroSection() {
               className="px-6 sm:px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all hover:shadow-lg hover:-translate-y-0.5 flex items-center justify-center gap-2"
             >
               View Experience
-              <ArrowRight className="w-4 h-4" />
+              <IconArrowRight className="w-4 h-4" />
             </button>
             <button
               onClick={() => scrollToSection('contact')}
               className="px-6 sm:px-8 py-3 bg-white text-gray-700 border border-gray-300 rounded-lg hover:border-gray-400 transition-all hover:shadow-md hover:-translate-y-0.5 flex items-center justify-center gap-2"
             >
-              <Mail className="w-4 h-4" />
+              <IconMail className="w-4 h-4" />
               Contact Me
             </button>
           </motion.div>

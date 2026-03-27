@@ -1,22 +1,22 @@
 import { motion } from 'motion/react';
-import { Mail, Linkedin, Github, Send } from 'lucide-react';
+import { IconBrandGithub, IconBrandLinkedin, IconMail, IconSend } from '@tabler/icons-react';
 import { useInView } from './hooks/useInView';
 
 const contactLinks = [
   {
-    icon: Mail,
+    icon: IconMail,
     label: 'Email',
     value: 'dikostrovv@gmail.com',
     href: 'mailto:dikostrovv@gmail.com',
   },
   {
-    icon: Linkedin,
+    icon: IconBrandLinkedin,
     label: 'LinkedIn',
     value: 'linkedin.com/in/dikostrov',
     href: 'https://www.linkedin.com/in/dikostrov/',
   },
   {
-    icon: Github,
+    icon: IconBrandGithub,
     label: 'GitHub',
     value: 'github.com/dikostrovv',
     href: 'https://github.com/dikostrovv',
@@ -79,7 +79,7 @@ export function ContactSection() {
             transition={{ delay: 0.4 }}
             className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all hover:shadow-xl hover:-translate-y-0.5 text-sm sm:text-base"
           >
-            <Send className="w-4 h-4 sm:w-5 sm:h-5" />
+            <IconSend className="w-4 h-4 sm:w-5 sm:h-5" />
             Send Message
           </motion.a>
         </motion.div>

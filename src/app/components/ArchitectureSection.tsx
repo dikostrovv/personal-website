@@ -1,4 +1,4 @@
-import { ChevronDown } from 'lucide-react';
+import { IconChevronDown } from '@tabler/icons-react';
 import { AnimatePresence, motion } from 'motion/react';
 import { useState } from 'react';
 import { useInView } from './hooks/useInView';
@@ -120,11 +120,11 @@ export function ArchitectureSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: index * 0.1 }}
-                className="bg-white rounded-xl border border-gray-200 hover:shadow-xl transition-all hover:-translate-y-1"
+                className="h-full bg-white rounded-xl border border-gray-200 hover:shadow-xl transition-all hover:-translate-y-1"
               >
                 <button
                   onClick={() => toggleCard(block.id)}
-                  className="w-full text-left p-4 sm:p-5"
+                  className="w-full h-full text-left p-4 sm:p-5"
                 >
                   <div className="flex flex-col min-h-full">
                     <div>
@@ -148,7 +148,7 @@ export function ArchitectureSection() {
                                 <ul className="space-y-2">
                                   {detail.items.map((item) => (
                                     <li key={item} className="flex gap-3 text-sm sm:text-base text-gray-600">
-                                      <span className="text-blue-600 mt-1.5 flex-shrink-0">•</span>
+                                      <span className="text-blue-600 flex-shrink-0">•</span>
                                       <span>{item}</span>
                                     </li>
                                   ))}
@@ -165,7 +165,7 @@ export function ArchitectureSection() {
                       transition={{ duration: 0.3 }}
                       className="flex justify-center"
                     >
-                      <ChevronDown className="w-5 h-5 text-gray-400" />
+                      <IconChevronDown className="w-5 h-5 text-gray-400" />
                     </motion.div>
                   </div>
                 </button>

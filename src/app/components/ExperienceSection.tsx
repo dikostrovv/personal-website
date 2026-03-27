@@ -1,6 +1,6 @@
+import { IconCalendar, IconChevronDown } from '@tabler/icons-react';
+import { AnimatePresence, motion } from 'motion/react';
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { ChevronDown, Calendar } from 'lucide-react';
 import { useInView } from './hooks/useInView';
 
 const experiences = [
@@ -114,7 +114,7 @@ export function ExperienceSection() {
                         <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-2">
                           <h4 className="text-lg sm:text-xl">{exp.company}</h4>
                           <div className="flex items-center gap-1 text-xs sm:text-sm text-gray-500">
-                            <Calendar className="w-3 h-3 sm:w-4 sm:h-4" />
+                            <IconCalendar className="w-3 h-3 sm:w-4 sm:h-4" />
                             {exp.period}
                           </div>
                         </div>
@@ -126,7 +126,7 @@ export function ExperienceSection() {
                         transition={{ duration: 0.3 }}
                         className="flex-shrink-0 mt-2"
                       >
-                        <ChevronDown className="w-5 h-5 text-gray-400" />
+                        <IconChevronDown className="w-5 h-5 text-gray-400" />
                       </motion.div>
                     </div>
                   </button>
@@ -152,7 +152,7 @@ export function ExperienceSection() {
                                   transition={{ delay: i * 0.05 }}
                                   className="flex gap-3 text-sm sm:text-base text-gray-600"
                                 >
-                                  <span className="text-blue-600 mt-1.5 flex-shrink-0">•</span>
+                                  <span className="text-blue-600 flex-shrink-0">•</span>
                                   <span>{achievement}</span>
                                 </motion.li>
                               ))}

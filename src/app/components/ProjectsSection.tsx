@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { ExternalLink, Zap } from 'lucide-react';
+import { IconBolt, IconExternalLink } from '@tabler/icons-react';
 import { useInView } from './hooks/useInView';
 
 const projects = [
@@ -57,7 +57,7 @@ export function ProjectsSection() {
                   <h4 className="text-lg sm:text-xl group-hover:text-blue-600 transition-colors pr-2">
                     {project.title}
                   </h4>
-                  <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 group-hover:text-blue-600 transition-colors flex-shrink-0" />
+                  <IconExternalLink className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 group-hover:text-blue-600 transition-colors flex-shrink-0" />
                 </div>
 
                 <p className="text-sm sm:text-base text-gray-600 mb-4 leading-relaxed">
@@ -77,7 +77,7 @@ export function ProjectsSection() {
 
                 <div className="pt-4 border-t border-gray-100">
                   <div className="flex items-start gap-2 mb-3">
-                    <Zap className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                    <IconBolt className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-blue-600 flex-shrink-0 mt-0.5" />
                     <p className="text-xs sm:text-sm text-gray-700">{project.keyResult}</p>
                   </div>
                   <div className="flex flex-wrap gap-2 text-xs text-gray-500">
