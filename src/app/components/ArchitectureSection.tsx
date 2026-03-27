@@ -49,7 +49,6 @@ const architectureBlocks: ArchBlock[] = [
         items: [
           'Micro-frontends',
           'Component libraries',
-          'MVVM and MVC patterns',
           'Clean Architecture principles',
         ],
       },

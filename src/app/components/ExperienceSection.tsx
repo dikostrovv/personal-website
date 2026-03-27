@@ -44,7 +44,7 @@ const experiences = [
       'Designed reusable components that improved maintainability across the product.',
       'Ensured a smooth UX across devices for a C-level stakeholder audience.',
     ],
-    technologies: ['React', 'TypeScript', 'SCSS', 'PWA', 'Service Workers'],
+    technologies: ['React', 'TypeScript', 'SCSS', 'PWA'],
   },
   {
     id: 4,
