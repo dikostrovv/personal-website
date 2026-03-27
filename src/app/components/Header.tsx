@@ -37,8 +37,23 @@ export function Header() {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setMobileMenuOpen(false);
+      const header = document.querySelector('header');
+      const headerOffset = header instanceof HTMLElement ? header.offsetHeight : 0;
+      const targetPosition = element.getBoundingClientRect().top + window.scrollY - headerOffset;
+      const scroll = () => {
+        window.scrollTo({
+          top: Math.max(targetPosition, 0),
+          behavior: 'smooth',
+        });
+      };
+
+      if (mobileMenuOpen) {
+        setMobileMenuOpen(false);
+        requestAnimationFrame(scroll);
+        return;
+      }
+
+      scroll();
     }
   };
 

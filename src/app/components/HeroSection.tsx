@@ -5,7 +5,14 @@ export function HeroSection() {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const header = document.querySelector('header');
+      const headerOffset = header instanceof HTMLElement ? header.offsetHeight : 0;
+      const targetPosition = element.getBoundingClientRect().top + window.scrollY - headerOffset;
+
+      window.scrollTo({
+        top: Math.max(targetPosition, 0),
+        behavior: 'smooth',
+      });
     }
   };
 
