@@ -1,4 +1,4 @@
-import { IconBrandGithub, IconBrandLinkedin, IconMail, IconSend } from '@tabler/icons-react';
+import { IconBrandGithub, IconBrandLinkedin, IconBrandTelegram, IconMail } from '@tabler/icons-react';
 import { motion } from 'motion/react';
 import { useInView } from './hooks/useInView';
 
@@ -21,6 +21,12 @@ const contactLinks = [
     value: 'github.com/dikostrovv',
     href: 'https://github.com/dikostrovv',
   },
+  {
+    icon: IconBrandTelegram,
+    label: 'Telegram',
+    value: '@dikostrov',
+    href: 'https://t.me/dikostrov',
+  },
 ];
 
 export function ContactSection() {
@@ -42,7 +48,7 @@ export function ContactSection() {
             Based in CET and open to discussing frontend and full-stack opportunities, especially in product teams building thoughtful user experiences.
           </p>
 
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12">
+          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
             {contactLinks.map((contact, index) => {
               const Icon = contact.icon;
               return (
@@ -71,17 +77,6 @@ export function ContactSection() {
               );
             })}
           </div>
-
-          <motion.a
-            href="mailto:dikostrovv@gmail.com"
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.4 }}
-            className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all hover:shadow-xl hover:-translate-y-0.5 text-sm sm:text-base"
-          >
-            <IconSend className="w-4 h-4 sm:w-5 sm:h-5" />
-            Send Message
-          </motion.a>
         </motion.div>
       </div>
 
