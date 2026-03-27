@@ -8,7 +8,7 @@ const navItems = [
   { id: 'skills', label: 'Skills' },
   { id: 'experience', label: 'Experience' },
   { id: 'projects', label: 'Projects' },
-  { id: 'architecture', label: 'Architecture' },
+  { id: 'architecture', label: 'Approach' },
   { id: 'contact', label: 'Contact' },
 ];
 
@@ -51,7 +51,7 @@ export function Header() {
             animate={{ opacity: 1, x: 0 }}
             className="font-semibold text-lg"
           >
-            DK
+            Dmitrii Kostrov
           </motion.div>
 
           {/* Desktop Navigation */}

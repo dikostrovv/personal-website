@@ -30,7 +30,7 @@ export function HeroSection() {
             transition={{ delay: 0.2 }}
             className="text-sm sm:text-base text-blue-600 mb-4 tracking-wide"
           >
-            FRONTEND / FULL-STACK DEVELOPER
+            FRONTEND DEVELOPER (REACT / TYPESCRIPT)
           </motion.p>
           
           <motion.h1
@@ -48,7 +48,7 @@ export function HeroSection() {
             transition={{ delay: 0.4 }}
             className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8 sm:mb-12 px-4"
           >
-            Building scalable web applications with focus on performance, architecture, and user experience
+            Frontend and full-stack developer with 6+ years of experience building scalable web applications in healthcare and finance, with a strong focus on performance, maintainability, and user experience.
           </motion.p>
 
           <motion.div
@@ -58,10 +58,10 @@ export function HeroSection() {
             className="flex flex-col sm:flex-row gap-4 justify-center px-4"
           >
             <button
-              onClick={() => scrollToSection('projects')}
+              onClick={() => scrollToSection('experience')}
               className="px-6 sm:px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all hover:shadow-lg hover:-translate-y-0.5 flex items-center justify-center gap-2"
             >
-              View Projects
+              View Experience
               <ArrowRight className="w-4 h-4" />
             </button>
             <button

@@ -1,6 +1,6 @@
+import { ChevronDown } from 'lucide-react';
+import { AnimatePresence, motion } from 'motion/react';
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { ArrowRight, X } from 'lucide-react';
 import { useInView } from './hooks/useInView';
 
 interface ArchBlock {
@@ -15,76 +15,75 @@ interface ArchBlock {
 
 const architectureBlocks: ArchBlock[] = [
   {
-    id: 'host',
-    title: 'Host Application',
-    subtitle: 'Container & Router',
+    id: 'frontend',
+    title: 'Frontend Foundations',
+    subtitle: 'React / TypeScript',
     details: [
       {
-        title: 'Core Responsibilities',
+        title: 'Core Focus',
         items: [
-          'Application shell and routing',
-          'Authentication & authorization',
-          'Global state management',
-          'Error boundary & monitoring',
+          'Building scalable interfaces with React and TypeScript',
+          'Creating maintainable UI with reusable component patterns',
+          'Responsive design and accessibility improvements',
+          'Performance-minded delivery across production apps',
         ],
       },
       {
         title: 'Technologies',
         items: [
-          'React Router',
-          'Context API',
-          'Sentry integration',
-          'Azure AD authentication',
+          'React',
+          'TypeScript',
+          'JavaScript',
+          'SCSS / CSS',
         ],
       },
     ],
   },
   {
-    id: 'microfrontends',
-    title: 'Micro-frontends',
-    subtitle: 'Federated Modules',
+    id: 'architecture',
+    title: 'Architecture',
+    subtitle: 'Patterns & systems',
     details: [
       {
         title: 'Architecture',
         items: [
-          'Module Federation (Webpack 5)',
-          'Independent deployments',
-          'Isolated build pipelines',
-          'Runtime integration',
+          'Micro-frontends',
+          'Component libraries',
+          'MVVM and MVC patterns',
+          'Clean Architecture principles',
         ],
       },
       {
-        title: 'Benefits',
+        title: 'What I improved',
         items: [
-          'Team autonomy',
-          'Faster release cycles',
-          'Technology flexibility',
-          'Scalable development',
+          'Split a monolithic healthcare system into micro-frontends',
+          'Built shared UI foundations with Storybook and Jest',
+          'Improved delivery speed through reusable components',
+          'Worked across the full product lifecycle in Agile teams',
         ],
       },
     ],
   },
   {
-    id: 'components',
-    title: 'Component Library',
-    subtitle: 'Shared UI System',
+    id: 'delivery',
+    title: 'Delivery',
+    subtitle: 'Quality and collaboration',
     details: [
       {
-        title: 'Features',
+        title: 'Engineering Practices',
         items: [
-          '50+ reusable components',
-          'Consistent design system',
-          'Accessibility (WCAG 2.1)',
-          'TypeScript definitions',
+          'Unit testing with Jest and React Testing Library',
+          'CI/CD pipeline awareness and release support',
+          'REST API integration and backend collaboration',
+          'Code reviews and mentoring newer developers',
         ],
       },
       {
-        title: 'Tooling',
+        title: 'Recent stack',
         items: [
-          'Storybook documentation',
-          'Automated visual testing',
-          'NPM package distribution',
-          'Semantic versioning',
+          'Webpack and Vite',
+          '.NET',
+          'GitLab CI/CD',
         ],
       },
     ],
@@ -92,9 +91,12 @@ const architectureBlocks: ArchBlock[] = [
 ];
 
 export function ArchitectureSection() {
-  const [selectedBlock, setSelectedBlock] = useState<string | null>(null);
-  const [hoveredBlock, setHoveredBlock] = useState<string | null>(null);
+  const [openCardId, setOpenCardId] = useState<string | null>(null);
   const { ref, isInView } = useInView();
+
+  const toggleCard = (id: string) => {
+    setOpenCardId(prev => (prev === id ? null : id));
+  };
 
   return (
     <section id="architecture" className="py-16 sm:py-24 md:py-32 bg-white relative overflow-hidden">
@@ -105,127 +107,70 @@ export function ArchitectureSection() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-sm tracking-wider text-blue-600 mb-4">SYSTEM DESIGN</h2>
-          <h3 className="text-3xl sm:text-4xl mb-4">Architecture Expertise</h3>
+          <h2 className="text-sm tracking-wider text-blue-600 mb-4">APPROACH</h2>
+          <h3 className="text-3xl sm:text-4xl mb-4">How I Work</h3>
           <p className="text-sm sm:text-base text-gray-600 mb-8 sm:mb-12 max-w-2xl">
-            Interactive visualization of micro-frontend architecture. Click on each component to explore details.
+            A quick overview of the technical areas that define my recent work across healthcare and finance products.
           </p>
 
-          {/* Architecture Diagram */}
-          <div className="relative">
-            <div className="flex flex-col md:flex-row items-center justify-center gap-3 sm:gap-4 md:gap-8 mb-8">
-              {architectureBlocks.map((block, index) => (
-                <div key={block.id} className="flex items-center w-full md:w-auto">
-                  <motion.button
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                    transition={{ delay: index * 0.15 }}
-                    onClick={() => setSelectedBlock(block.id)}
-                    onMouseEnter={() => setHoveredBlock(block.id)}
-                    onMouseLeave={() => setHoveredBlock(null)}
-                    className={`
-                      relative bg-white border-2 rounded-xl p-4 sm:p-6 w-full md:min-w-[200px] transition-all
-                      ${hoveredBlock === block.id ? 'border-blue-400 shadow-xl md:-translate-y-2' : 'border-gray-200 shadow-md'}
-                      ${selectedBlock === block.id ? 'border-blue-600 shadow-2xl ring-4 ring-blue-100' : ''}
-                      hover:border-blue-400 hover:shadow-xl md:hover:-translate-y-2
-                    `}
-                  >
-                    <div className="text-center">
-                      <h4 className="text-base sm:text-lg mb-1">{block.title}</h4>
-                      <p className="text-xs sm:text-sm text-gray-500">{block.subtitle}</p>
-                    </div>
-
-                    {/* Connection indicator */}
-                    {hoveredBlock === block.id && (
-                      <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        className="absolute inset-0 border-2 border-blue-400 rounded-xl -z-10"
-                        style={{
-                          boxShadow: '0 0 20px rgba(59, 130, 246, 0.3)',
-                        }}
-                      />
-                    )}
-                  </motion.button>
-
-                  {/* Arrow connector */}
-                  {index < architectureBlocks.length - 1 && (
-                    <motion.div
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={isInView ? { opacity: 1, x: 0 } : {}}
-                      transition={{ delay: index * 0.15 + 0.1 }}
-                      className={`mx-2 md:mx-2 my-2 md:my-0 transition-colors ${
-                        hoveredBlock === block.id || hoveredBlock === architectureBlocks[index + 1].id
-                          ? 'text-blue-600'
-                          : 'text-gray-300'
-                      }`}
-                    >
-                      <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 md:rotate-0 rotate-90" />
-                    </motion.div>
-                  )}
-                </div>
-              ))}
-            </div>
-
-            {/* Detailed Panel */}
-            <AnimatePresence>
-              {selectedBlock && (
-                <motion.div
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: 'auto' }}
-                  exit={{ opacity: 0, height: 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-5 sm:p-8 border border-blue-200 overflow-hidden"
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+            {architectureBlocks.map((block, index) => (
+              <motion.div
+                key={block.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: index * 0.1 }}
+                className="bg-white rounded-xl border border-gray-200 hover:shadow-xl transition-all hover:-translate-y-1"
+              >
+                <button
+                  onClick={() => toggleCard(block.id)}
+                  className="w-full text-left p-4 sm:p-5"
                 >
-                  <div className="flex justify-between items-start mb-6">
+                  <div className="flex flex-col min-h-full">
                     <div>
-                      <h4 className="text-xl sm:text-2xl mb-2">
-                        {architectureBlocks.find(b => b.id === selectedBlock)?.title}
-                      </h4>
-                      <p className="text-sm sm:text-base text-blue-600">
-                        {architectureBlocks.find(b => b.id === selectedBlock)?.subtitle}
-                      </p>
+                      <h4 className="text-lg sm:text-xl mb-1">{block.title}</h4>
+                      <p className="text-sm sm:text-base text-blue-600">{block.subtitle}</p>
                     </div>
-                    <button
-                      onClick={() => setSelectedBlock(null)}
-                      className="p-2 hover:bg-white/50 rounded-lg transition-colors"
-                    >
-                      <X className="w-5 h-5" />
-                    </button>
-                  </div>
 
-                  <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
-                    {architectureBlocks
-                      .find(b => b.id === selectedBlock)
-                      ?.details.map((detail, i) => (
+                    <AnimatePresence initial={false}>
+                      {openCardId === block.id && (
                         <motion.div
-                          key={detail.title}
-                          initial={{ opacity: 0, y: 10 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ delay: i * 0.1 }}
-                          className="bg-white rounded-lg p-4 sm:p-5 border border-blue-100"
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: 'auto', opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.25 }}
+                          className="overflow-hidden"
                         >
-                          <h5 className="font-medium mb-3 text-gray-900 text-sm sm:text-base">{detail.title}</h5>
-                          <ul className="space-y-2">
-                            {detail.items.map((item, idx) => (
-                              <motion.li
-                                key={idx}
-                                initial={{ opacity: 0, x: -10 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{ delay: i * 0.1 + idx * 0.05 }}
-                                className="flex items-start gap-2 text-gray-600 text-xs sm:text-sm"
-                              >
-                                <span className="text-blue-600 mt-1">•</span>
-                                <span>{item}</span>
-                              </motion.li>
+                          <div className="space-y-4">
+                            {block.details.map((detail) => (
+                              <div key={detail.title} className="pt-4 border-t border-gray-100 first:border-t-0 first:pt-0">
+                                <h5 className="text-sm sm:text-base font-medium text-gray-900 mb-3">{detail.title}</h5>
+                                <ul className="space-y-2">
+                                  {detail.items.map((item) => (
+                                    <li key={item} className="flex gap-3 text-sm sm:text-base text-gray-600">
+                                      <span className="text-blue-600 mt-1.5 flex-shrink-0">•</span>
+                                      <span>{item}</span>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </div>
                             ))}
-                          </ul>
+                          </div>
                         </motion.div>
-                      ))}
+                      )}
+                    </AnimatePresence>
+
+                    <motion.div
+                      animate={{ rotate: openCardId === block.id ? 180 : 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="flex justify-center"
+                    >
+                      <ChevronDown className="w-5 h-5 text-gray-400" />
+                    </motion.div>
                   </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
+                </button>
+              </motion.div>
+            ))}
           </div>
         </motion.div>
       </div>

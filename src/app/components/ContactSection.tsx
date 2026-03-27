@@ -6,20 +6,20 @@ const contactLinks = [
   {
     icon: Mail,
     label: 'Email',
-    value: 'dmitrii.kostrov@example.com',
-    href: 'mailto:dmitrii.kostrov@example.com',
+    value: 'dikostrovv@gmail.com',
+    href: 'mailto:dikostrovv@gmail.com',
   },
   {
     icon: Linkedin,
     label: 'LinkedIn',
-    value: 'linkedin.com/in/dmitriikostrov',
-    href: 'https://linkedin.com/in/dmitriikostrov',
+    value: 'linkedin.com/in/dikostrov',
+    href: 'https://www.linkedin.com/in/dikostrov/',
   },
   {
     icon: Github,
     label: 'GitHub',
-    value: 'github.com/dkostrov',
-    href: 'https://github.com/dkostrov',
+    value: 'github.com/dikostrovv',
+    href: 'https://github.com/dikostrovv',
   },
 ];
 
@@ -37,10 +37,9 @@ export function ContactSection() {
           className="text-center"
         >
           <h2 className="text-sm tracking-wider text-blue-600 mb-4">GET IN TOUCH</h2>
-          <h3 className="text-3xl sm:text-4xl mb-4 sm:mb-6">Let's Work Together</h3>
+          <h3 className="text-3xl sm:text-4xl mb-4 sm:mb-6">Get In Touch</h3>
           <p className="text-base sm:text-lg text-gray-600 mb-8 sm:mb-12 max-w-2xl mx-auto">
-            I'm always interested in hearing about new projects and opportunities. 
-            Feel free to reach out!
+            Based in CET and open to discussing frontend and full-stack opportunities, especially in product teams building thoughtful user experiences.
           </p>
 
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12">
@@ -74,7 +73,7 @@ export function ContactSection() {
           </div>
 
           <motion.a
-            href="mailto:dmitrii.kostrov@example.com"
+            href="mailto:dikostrovv@gmail.com"
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.4 }}
@@ -93,7 +92,7 @@ export function ContactSection() {
         transition={{ delay: 0.6 }}
         className="mt-12 sm:mt-20 pt-6 sm:pt-8 border-t border-gray-200 text-center text-gray-500 text-xs sm:text-sm"
       >
-        <p>© 2026 Dmitrii Kostrov. Built with React & TypeScript.</p>
+        <p>© 2026 Dmitrii Kostrov. Frontend Developer (React / TypeScript).</p>
       </motion.footer>
     </section>
   );

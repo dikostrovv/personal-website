@@ -5,27 +5,27 @@ import { useInView } from './hooks/useInView';
 const projects = [
   {
     id: 1,
-    title: 'Healthcare Portal Platform',
-    description: 'Enterprise healthcare platform with micro-frontend architecture serving 500K+ monthly active users',
-    techStack: ['React', 'TypeScript', 'Module Federation', 'React Query', 'Tailwind CSS'],
-    keyResult: '60% faster deployment cycles, 40% improvement in developer productivity',
-    metrics: ['500K+ MAU', '99.9% uptime', '1.1s load time'],
+    title: 'StaffScheduleCare',
+    description: 'Healthcare workforce management platform where I build payroll and workforce management features across frontend and backend.',
+    techStack: ['React', 'TypeScript', '.NET', 'REST APIs', 'Testing'],
+    keyResult: 'Delivered end-to-end product work spanning UI, API integration, C# handlers, validation logic, and database migrations.',
+    metrics: ['Healthcare', 'Full-stack', 'Current role'],
   },
   {
     id: 2,
-    title: 'Real-time Trading Dashboard',
-    description: 'Financial trading platform with live data visualization and real-time market updates',
-    techStack: ['React', 'D3.js', 'WebSocket', 'Node.js', 'Redis'],
-    keyResult: 'Sub-100ms data refresh rate, processing $2M+ daily transactions',
-    metrics: ['<100ms latency', '$2M+ daily volume', '95% test coverage'],
+    title: 'Healthcare Web Platforms',
+    description: 'Clinic and patient-facing healthcare products built during my work with IQVIA.',
+    techStack: ['React', 'TypeScript', 'SCSS', 'Storybook', 'Jest', 'Webpack'],
+    keyResult: 'Helped move a monolithic system to micro-frontends and created a component library that reduced feature delivery time by about 20%.',
+    metrics: ['Micro-frontends', '+40% test coverage', 'Healthcare'],
   },
   {
     id: 3,
-    title: 'Component Library & Design System',
-    description: 'Comprehensive design system with 50+ components used across multiple applications',
-    techStack: ['React', 'TypeScript', 'Storybook', 'Radix UI', 'CSS-in-JS'],
-    keyResult: 'Adopted by 8 teams, reducing UI development time by 40%',
-    metrics: ['50+ components', '8 teams', '40% faster dev'],
+    title: 'Investment Strategy Platform',
+    description: 'Responsive conference product demo built for a major investment event as an overlapping project.',
+    techStack: ['React', 'TypeScript', 'SCSS', 'PWA', 'Service Workers'],
+    keyResult: 'Delivered the demo in under 2 months and improved app speed by 30% with a mobile-first PWA approach.',
+    metrics: ['Under 2 months', '+30% speed', 'Offline-ready'],
   },
 ];
 
@@ -41,7 +41,7 @@ export function ProjectsSection() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-sm tracking-wider text-blue-600 mb-4">FEATURED WORK</h2>
+          <h2 className="text-sm tracking-wider text-blue-600 mb-4">PROJECTS</h2>
           <h3 className="text-3xl sm:text-4xl mb-8 sm:mb-12">Selected Projects</h3>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">

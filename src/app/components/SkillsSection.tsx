@@ -1,20 +1,24 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
 import { ChevronDown } from 'lucide-react';
+import { AnimatePresence, motion } from 'motion/react';
+import { useState } from 'react';
 import { useInView } from './hooks/useInView';
 
 const skillsData = {
   Frontend: {
-    visible: ['React', 'TypeScript', 'Next.js', 'Tailwind CSS'],
-    hidden: ['Redux', 'React Query', 'Zustand', 'CSS-in-JS', 'Webpack', 'Vite'],
+    visible: ['React', 'TypeScript', 'JavaScript', 'Redux'],
+    hidden: ['HTML5', 'CSS3', 'SCSS', 'Responsive Design', 'Accessibility', 'PWA', 'Storybook'],
   },
-  Architecture: {
-    visible: ['Micro-frontends', 'Module Federation', 'Component Libraries'],
-    hidden: ['Design Systems', 'Monorepos', 'CI/CD', 'Performance Optimization'],
+  'Architecture & Patterns': {
+    visible: ['Micro-frontends', 'Component Libraries', 'Clean Architecture'],
+    hidden: [],
+  },
+  Testing: {
+    visible: ['Jest', 'React Testing Library', 'Unit Testing'],
+    hidden: ['CI/CD Pipelines'],
   },
   Tools: {
-    visible: ['Git', 'Jest', 'Storybook', 'Figma'],
-    hidden: ['Docker', 'GitHub Actions', 'Testing Library', 'Playwright', 'ESLint', 'Prettier'],
+    visible: ['Git', 'Webpack', 'Vite', 'REST'],
+    hidden: ['GitLab CI/CD'],
   },
 };
 
@@ -43,12 +47,13 @@ export function SkillsSection() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-sm tracking-wider text-blue-600 mb-4">SKILLS & EXPERTISE</h2>
+          <h2 className="text-sm tracking-wider text-blue-600 mb-4">SKILLS</h2>
           <h3 className="text-3xl sm:text-4xl mb-8 sm:mb-12">Technical Stack</h3>
 
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
             {Object.entries(skillsData).map(([category, { visible, hidden }], index) => {
               const isExpanded = expandedCategories.has(category);
+              const hasHiddenItems = hidden.length > 0;
               
               return (
                 <motion.div
@@ -72,7 +77,7 @@ export function SkillsSection() {
                   </div>
 
                   <AnimatePresence>
-                    {isExpanded && (
+                    {hasHiddenItems && isExpanded && (
                       <motion.div
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: 'auto', opacity: 1 }}
@@ -94,18 +99,20 @@ export function SkillsSection() {
                     )}
                   </AnimatePresence>
 
-                  <button
-                    onClick={() => toggleCategory(category)}
-                    className="mt-3 text-xs sm:text-sm text-blue-600 hover:text-blue-700 flex items-center gap-1 transition-colors"
-                  >
-                    {isExpanded ? 'Show less' : `+ ${hidden.length} more`}
-                    <motion.div
-                      animate={{ rotate: isExpanded ? 180 : 0 }}
-                      transition={{ duration: 0.3 }}
+                  {hasHiddenItems && (
+                    <button
+                      onClick={() => toggleCategory(category)}
+                      className="mt-3 text-xs sm:text-sm text-blue-600 hover:text-blue-700 flex items-center gap-1 transition-colors"
                     >
-                      <ChevronDown className="w-4 h-4" />
-                    </motion.div>
-                  </button>
+                      {isExpanded ? 'Show less' : `+ ${hidden.length} more`}
+                      <motion.div
+                        animate={{ rotate: isExpanded ? 180 : 0 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <ChevronDown className="w-4 h-4" />
+                      </motion.div>
+                    </button>
+                  )}
                 </motion.div>
               );
             })}
